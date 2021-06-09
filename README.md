@@ -2,62 +2,10 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![alt text](https://drive.google.com/file/d/1NiDgoFwBd3YNA7Q5kc0_YOGNxtPU4jdH/view?usp=sharing "My Network Diagram")
+!(https://drive.google.com/file/d/1NiDgoFwBd3YNA7Q5kc0_YOGNxtPU4jdH/view?usp=sharing "My Network Diagram")
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible file may be used to install only certain pieces of it, such as Filebeat.
 
----
-- name: Configure Elk VM with Docker
-  hosts: elk
-  remote_user: sysadmin
-  become: true
-  tasks:
-    # Use apt module
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        name: docker.io
-        state: present
-
-      # Use apt module
-    - name: Install pip3
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-
-      # Use pip module
-    - name: Install Docker python module
-      pip:
-        name: docker
-        state: present
-
-      # Use sysctl module
-    - name: Use more memory
-      sysctl:
-        name: vm.max_map_count
-        value: "262144"
-        state: present
-        reload: yes
-
-      # Use docker_container module
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        published_ports:
-          - 5601:5601
-          - 9200:9200
-          - 5044:5044
-
-      # Use systemd module
-    - name: Enable service docker on boot
-      systemd:
-        name: docker
-        enabled: yes
-        
 
 This document contains the following details:
 - Description of the Topologu
