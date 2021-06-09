@@ -92,10 +92,8 @@ SSH into the control node and follow the steps below:
 - Update the /etc/ansible/hosts file to include host group, private IP address followed by ansible_python_interpreter=/usr/bin/python3.
 - Run the playbook, and navigate to curl localhost/setup.php to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:
 - The playbooks are listed as install-elk.yml / filebeat-playbook.yml / metricbeat-playbook.yml /ansible_config.yml. They are to be copied into /etc/ansible directory.
 - To make Ansible run the playbook on a specific machine, update the /etc/ansible/hosts file. Within this file, name groups using square brackets (currently contains '[webservers]' and '[elk]') surrounding the group-name and under replace private IP's with your own respective IP's. You then use these group-names behind the "hosts:" field in the playbooks to specify which machines to apply the playbook to.
-
 -To check if the ELK server is running, navigate to http://[your.VM.IP]:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
